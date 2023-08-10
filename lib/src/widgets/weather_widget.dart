@@ -20,7 +20,6 @@ class WeatherWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     ThemeData appTheme = AppStateContainer.of(context).theme;
 
     return Center(
@@ -50,12 +49,13 @@ class WeatherWidget extends StatelessWidget {
                               .add(const ToggleButton(switchState: 'ON'));
                     },
                     style: TextButton.styleFrom(
-                        primary: appTheme.accentColor, elevation: 1),
+                        primary: appTheme.colorScheme.secondary, elevation: 1),
                     child: Text(weather.button!,
                         style: TextStyle(
                             color: AppStateContainer.of(context)
                                 .theme
-                                .accentColor
+                                .colorScheme
+                                .secondary
                                 .withAlpha(80)))),
               ),
               Column(
@@ -66,7 +66,7 @@ class WeatherWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 25,
                       letterSpacing: 5,
-                      color: appTheme.accentColor,
+                      color: appTheme.colorScheme.secondary,
                       fontWeight: FontWeight.w900,
                     ),
                   ),
@@ -78,14 +78,14 @@ class WeatherWidget extends StatelessWidget {
                       fontSize: 15,
                       letterSpacing: 5,
                       fontWeight: FontWeight.w100,
-                      color: appTheme.accentColor,
+                      color: appTheme.colorScheme.secondary,
                     ),
                   ),
                   WeatherSwipePager(weather: weather, weatherList: weatherList),
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: Divider(
-                      color: appTheme.accentColor.withAlpha(50),
+                      color: appTheme.colorScheme.secondary.withAlpha(50),
                     ),
                   ),
 
@@ -94,8 +94,7 @@ class WeatherWidget extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(10),
                     child: Divider(
-                                             
-                      color: appTheme.accentColor.withAlpha(50),
+                      color: appTheme.colorScheme.secondary.withAlpha(50),
                     ),
                   ),
                   Row(
@@ -111,15 +110,13 @@ class WeatherWidget extends StatelessWidget {
                             height: 30,
                             color: AppStateContainer.of(context)
                                 .theme
-                                .accentColor
+                                .colorScheme
+                                .secondary
                                 .withAlpha(50),
                           )),
                         ),
                         ValueTile(
-                            "sunrise",
-                            DateFormat('h:m a').format(
-                                DateTime.fromMillisecondsSinceEpoch(
-                                    weather.time! * 1000))),
+                            "Temperature", '${weather.temperature!.kelvin}°'),
                         Padding(
                           padding: const EdgeInsets.only(left: 15, right: 15),
                           child: Center(
@@ -128,24 +125,8 @@ class WeatherWidget extends StatelessWidget {
                             height: 30,
                             color: AppStateContainer.of(context)
                                 .theme
-                                .accentColor
-                                .withAlpha(50),
-                          )),
-                        ),
-                        ValueTile(
-                            "sunset",
-                            DateFormat('h:m a').format(
-                                DateTime.fromMillisecondsSinceEpoch(
-                                    weather.time! * 1000))),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15, right: 15),
-                          child: Center(
-                              child: Container(
-                            width: 1,
-                            height: 30,
-                            color: AppStateContainer.of(context)
-                                .theme
-                                .accentColor
+                                .colorScheme
+                                .secondary
                                 .withAlpha(50),
                           )),
                         ),

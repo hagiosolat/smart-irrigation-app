@@ -15,10 +15,10 @@ class CurrentConditions extends StatelessWidget {
     ThemeData appTheme = AppStateContainer.of(context).theme;
     TemperatureUnit unit = AppStateContainer.of(context).temperatureUnit;
 
-    int currentTemp = this.weather.soilMoisture!;
+    int currentSoilMoisture = this.weather.soilMoisture!;
     //int currentTemp = this.weather.temperature!.as(unit).round();
-    int maxTemp = this.weather.temperature!.as(unit).round();
-    int minTemp = this.weather.temperature!.as(unit).round();
+    //int maxTemp = this.weather.temperature!.as(unit).round();
+    //int minTemp = this.weather.temperature!.as(unit).round();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -32,24 +32,24 @@ class CurrentConditions extends StatelessWidget {
           height: 20,
         ),
         Text(
-          '$currentTemp°',
+          '${currentSoilMoisture}',
           style: TextStyle(
               fontSize: 100,
               fontWeight: FontWeight.w100,
-              color: appTheme.accentColor),
+              color: appTheme.colorScheme.secondary),
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          ValueTile("max", '$maxTemp'),
+          // ValueTile("max", '$maxTemp'),
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 15),
             child: Center(
                 child: Container(
               width: 1,
               height: 30,
-              color: appTheme.accentColor.withAlpha(50),
+              color: appTheme.colorScheme.secondary.withAlpha(50),
             )),
           ),
-          ValueTile("min", '$minTemp°'),
+          // ValueTile("min", '$minTemp°'),
         ]),
       ],
     );

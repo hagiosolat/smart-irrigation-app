@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:irrigation1/firebase_options.dart';
-import 'package:irrigation1/src/api/api_keys.dart';
 import 'package:irrigation1/src/api/message_api.dart';
 import 'package:irrigation1/src/api/realdb_api.dart';
 import 'package:irrigation1/src/bloc/weather_bloc_observre.dart';
@@ -12,16 +11,13 @@ import 'package:irrigation1/src/themes.dart';
 import 'package:irrigation1/src/utils/constants.dart';
 import 'package:irrigation1/src/utils/converters.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 
 //import 'src/api/weather_api_client.dart';
 import 'src/bloc/weather_bloc.dart';
 import 'src/repository/weather_repository.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 //import 'firebase_options.dart';
 
-final navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +39,7 @@ class WeatherApp extends StatelessWidget {
   final WeatherRepository weatherRepository;
 
   const WeatherApp({Key? key, required this.weatherRepository})
-      : assert(weatherRepository != null),
+      : //assert(weatherRepository != null),
         super(key: key);
 
   @override
@@ -101,7 +97,7 @@ class _AppStateContainerState extends State<AppStateContainer> {
 
   @override
   Widget build(BuildContext context) {
-    print(theme.accentColor);
+    print(theme.colorScheme.secondary);
     return _InheritedStateContainer(
       data: this,
       child: widget.child,

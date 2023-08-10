@@ -1,10 +1,9 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:irrigation1/main.dart';
 import 'package:irrigation1/src/model/weather.dart';
 import 'package:irrigation1/src/widgets/current_conditions.dart';
 import 'package:irrigation1/src/widgets/empty_widget.dart';
-import 'package:irrigation1/src/widgets/line_chart.dart';
 import 'package:irrigation1/src/widgets/temperature_line_chart.dart';
 
 class WeatherSwipePager extends StatelessWidget {
@@ -47,9 +46,9 @@ class WeatherSwipePager extends StatelessWidget {
               activeSize: 5,
               color: AppStateContainer.of(context)
                   .theme
-                  .accentColor
+                  .colorScheme.secondary
                   .withOpacity(0.4),
-              activeColor: appTheme.accentColor),
+              activeColor: appTheme.colorScheme.secondary),
         ),
       ),
     );

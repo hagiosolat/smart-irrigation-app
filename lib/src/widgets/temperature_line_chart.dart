@@ -20,29 +20,26 @@ class _TemperatureLineChartState extends State<TemperatureLineChart> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(40.0),
+      padding: EdgeInsets.all(25.0),
       child: SfCartesianChart(
-          primaryXAxis:DateTimeAxis(
-
-          ),
-          primaryYAxis:NumericAxis(
+          primaryXAxis: DateTimeAxis(),
+          primaryYAxis: NumericAxis(
             minimum: 0,
             maximum: 5000,
-            interval: 500,
-            labelFormat: r'$value',
+            interval: 1000,
+            //labelFormat: r'$value',
             title: AxisTitle(text: 'Soil Moisture'),
-
           ),
-          
-          series: [  
-            LineSeries<WeatherMap, DateTime>
-            (dataSource: widget.weathers, 
-            xValueMapper: (WeatherMap weather, _) => DateTime.fromMillisecondsSinceEpoch(weather.time! * 1000),
-            yValueMapper: (WeatherMap weather,_) => weather.soilMoisture,
-            color:  Color.fromRGBO(242, 117, 7, 1),
-             )        
-          ]        
-          
+          series: [
+            LineSeries<WeatherMap, DateTime>(
+              dataSource: widget.weathers,
+              xValueMapper: (WeatherMap weather, _) =>
+                  DateTime.fromMillisecondsSinceEpoch(weather.time! * 1000),
+              yValueMapper: (WeatherMap weather, _) => weather.soilMoisture,
+              color: Color.fromRGBO(242, 117, 7, 1),
+            )
+          ]
+
           // new charts.Series<Weather, DateTime>(
           //   id: 'Temperature',
           //   colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
@@ -52,8 +49,8 @@ class _TemperatureLineChartState extends State<TemperatureLineChart> {
           //       .as(AppStateContainer.of(context).temperatureUnit),
           //   data: weathers,
           // )
-        
-      ),
+
+          ),
     );
   }
 }

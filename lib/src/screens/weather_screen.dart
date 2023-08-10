@@ -4,6 +4,7 @@ import 'package:irrigation1/src/bloc/weather_event.dart';
 import 'package:irrigation1/src/bloc/weather_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:irrigation1/src/model/weather.dart';
+import 'package:irrigation1/src/utils/constants.dart';
 import 'package:irrigation1/src/widgets/weather_widget.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
@@ -59,7 +60,13 @@ class WeatherScreenState extends State<WeatherScreen>
           title: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Text('FINAL YEAR PROJECT'),
+              const Center(
+                child: Text(
+                  'FINAL YEAR PROJECT',
+                  style: TextStyle(color: AppColors.contentColorBlack),
+                ),
+              ),
+              const SizedBox(height: 10),
               Text(
                 DateFormat('EEEE, d MMMM yyyy').format(DateTime.now()),
                 style: TextStyle(
@@ -70,26 +77,26 @@ class WeatherScreenState extends State<WeatherScreen>
               )
             ],
           ),
-          actions: <Widget>[
-            PopupMenuButton<OptionsMenu>(
-              onSelected: _onOptionMenuItemSelected,
-              itemBuilder: (context) => <PopupMenuEntry<OptionsMenu>>[
-                const PopupMenuItem<OptionsMenu>(
-                  value: OptionsMenu.changeCity,
-                  child: Text("change city"),
-                ),
-                const PopupMenuItem<OptionsMenu>(
-                  value: OptionsMenu.settings,
-                  child: Text("settings"),
-                ),
-              ],
-              child: Icon(
-                Icons.more_vert,
-                color: appTheme.colorScheme.secondary,
-                //accentColor,
-              ),
-            )
-          ],
+          // actions: <Widget>[
+          //   PopupMenuButton<OptionsMenu>(
+          //     onSelected: _onOptionMenuItemSelected,
+          //     itemBuilder: (context) => <PopupMenuEntry<OptionsMenu>>[
+          //       const PopupMenuItem<OptionsMenu>(
+          //         value: OptionsMenu.changeCity,
+          //         child: Text("change city"),
+          //       ),
+          //       const PopupMenuItem<OptionsMenu>(
+          //         value: OptionsMenu.settings,
+          //         child: Text("settings"),
+          //       ),
+          //     ],
+          //     child: Icon(
+          //       Icons.more_vert,
+          //       color: appTheme.colorScheme.secondary,
+          //       //accentColor,
+          //     ),
+          //   )
+          // ],
         ),
         backgroundColor: Colors.white,
         body: Material(

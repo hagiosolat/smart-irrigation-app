@@ -42,7 +42,7 @@ class WeatherRepository {
 
   Stream<List<WeatherMap>> getWeatherList() {
     var weathers = databaseApi.retrieveWeatherData();
-    print(weathers);
+    print('FROM DB ${weathers.length}');
     return weathers;
   }
 
