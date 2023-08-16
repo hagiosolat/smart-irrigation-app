@@ -26,23 +26,20 @@ import '../model/weather.dart';
 
 class WeatherRepository {
   final DatabaseApi databaseApi;
-  WeatherRepository({required this.databaseApi}) : assert(databaseApi != null);
+  WeatherRepository({required this.databaseApi});
 
   Stream<WeatherMap> getWeather() {
     var weather = databaseApi.retrieveWeather();
     print(
         '...............CHECKING IF THE WEATHER IS BEING RETURNED HERE...........');
     print(weather);
-
-    // ForecastData(weatherList: weathers);
-    //print({weathers.length});
-    // weather.forecast = weathers;
     return weather;
   }
 
   Stream<List<WeatherMap>> getWeatherList() {
-    var weathers = databaseApi.retrieveWeatherData();
-    print('FROM DB ${weathers.length}');
+    var weathers;
+    weathers = databaseApi.retrieveWeatherData();
+    print('FROM DB ${weathers.toString()}');
     return weathers;
   }
 

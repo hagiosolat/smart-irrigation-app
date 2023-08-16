@@ -16,11 +16,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   }
   Future<void> _onFetchWeather(
       FetchWeather event, Emitter<WeatherState> emit) async {
-    // print('I want to fetch this data from the backend');
-    //final weather = await weatherRepository.getWeather();
-    // print(
-    //     'weather infomations are: ${weather.humidity}, temperature: ${weather.temperature}, soilMoisture: ${weather.soilMoisture}');
-    // return emit(WeatherLoaded(weather:weather));
     await emit.forEach(weatherRepository.getWeather(), onData: (weather) {
       return WeatherLoaded(weather: weather);
     });
@@ -44,10 +39,4 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     print('.........!!!!!!!!!!!!!!!$isSet............!!!!!!!!!!!');
     return emit(ButtonState(buttonstate: isSet));
   }
-
-  // Future<void> _ongetButtonState(
-  //     GetButtonState event, Emitter<WeatherState> emit) async {
-  //   final buttonState = await weatherRepository.getButtonState();
-  //   return emit(ButtonStateString(buttonstate: buttonState));
-  // }
 }

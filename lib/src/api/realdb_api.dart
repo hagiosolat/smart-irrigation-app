@@ -6,7 +6,7 @@ import '../model/weather.dart';
 
 class DatabaseApi {
   final database = FirebaseDatabase.instance.ref();
-   dynamic result;
+  dynamic result;
   StreamController<WeatherMap> weatherMapStreamController =
       StreamController<WeatherMap>.broadcast();
   StreamController<List<WeatherMap>> weatherListController =
@@ -14,19 +14,23 @@ class DatabaseApi {
 
   //to get the temperature value...
   Stream<List<WeatherMap>> retrieveWeatherData() {
-    List<WeatherMap> weatherlist = [];
+    
     database.child('weather').onValue.listen((event) {
+      List<WeatherMap> weatherlist = [];
       final datasnapshot =
           Map<String, dynamic>.from(event.snapshot.value as dynamic);
       datasnapshot.forEach(
         (key, value) {
           if (!weatherlist.contains(WeatherMap.fromJson(value))) {
             weatherlist.add(WeatherMap.fromJson(value));
+             print(
+        'data coming from the stream is ${weatherlist.length}');
           }
         },
       );
-      weatherListController.add(weatherlist);
+      weatherListController.sink.add(weatherlist);
     });
+   
     return weatherListController.stream;
   }
 
@@ -55,4 +59,7 @@ class DatabaseApi {
     print('THERE IS AN ERROR IN THE BUTTON BEING PRESSE $stackTrace');
   }
 
+  void dispose() {
+    weatherListController.close();
+  }
 }

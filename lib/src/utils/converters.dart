@@ -18,7 +18,7 @@ enum TemperatureUnit { kelvin, celsius, fahrenheit }
 class Temperature {
   final double _kelvin;
 
-  Temperature(this._kelvin) : assert(_kelvin != null);
+  Temperature(this._kelvin);
 
   factory Temperature.fromjson(dynamic data) {
     return Temperature(data['kelvin'] ?? 0);

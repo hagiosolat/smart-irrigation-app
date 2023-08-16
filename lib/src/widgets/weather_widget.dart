@@ -21,6 +21,7 @@ class WeatherWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = AppStateContainer.of(context).theme;
+    print('This is the WeatherList of the weather Page ${weatherList!.length}');
 
     return Center(
       child: BlocConsumer<WeatherBloc, WeatherState>(

@@ -24,9 +24,9 @@ class ForecastHorizontal extends StatelessWidget {
         shrinkWrap: true,
         itemCount: weathers.length,
         separatorBuilder: (context, index) => const Divider(
-              height: 100,
-              color: Colors.white,
-            ),
+          height: 100,
+          color: Colors.white,
+        ),
         padding: const EdgeInsets.only(left: 10, right: 10),
         itemBuilder: (context, index) {
           final item = weathers[index];
@@ -36,8 +36,8 @@ class ForecastHorizontal extends StatelessWidget {
                 child: ValueTile(
               DateFormat('E, ha').format(
                   DateTime.fromMillisecondsSinceEpoch(item.time! * 1000)),
-              '${item.temperature!.as(AppStateContainer.of(context).temperatureUnit).round()}°',
-             // iconData: item.getIconData(),
+              '${(item.soilMoisture! * 100) / 4095}%',
+              // iconData: item.getIconData(),
             )),
           );
         },
