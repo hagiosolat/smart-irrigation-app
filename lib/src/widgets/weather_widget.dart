@@ -8,12 +8,11 @@ import 'package:irrigation1/src/model/weather.dart';
 import 'package:irrigation1/src/widgets/forecast_horizontal_widget.dart';
 import 'package:irrigation1/src/widgets/value_tile.dart';
 import 'package:irrigation1/src/widgets/weather_swipe_pager.dart';
-import 'package:intl/intl.dart';
 
 class WeatherWidget extends StatelessWidget {
   final WeatherMap weather;
   final List<WeatherMap>? weatherList;
-  bool? buttonState;
+  final bool? buttonState;
 
   WeatherWidget({required this.weather, this.weatherList, this.buttonState});
 

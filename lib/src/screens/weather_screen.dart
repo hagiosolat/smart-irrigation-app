@@ -134,11 +134,10 @@ class WeatherScreenState extends State<WeatherScreen>
                   );
                 } else if (weatherState is WeatherError) {
                   String errorText = 'There was an error fetching weather data';
-                  if (weatherState is WeatherError) {
+                  
                     if (weatherState.errorCode == 404) {
                       errorText =
                           'We have trouble fetching weather for $_cityName';
-                    }
                   }
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,

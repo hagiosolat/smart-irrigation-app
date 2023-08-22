@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:irrigation1/main.dart';
 import 'package:irrigation1/src/model/weather.dart';
 
-import '../utils/converters.dart';
+//import '../utils/converters.dart';
 
 /// Renders Weather Icon, current, min and max temperatures
 class CurrentConditions extends StatelessWidget {
@@ -12,7 +12,7 @@ class CurrentConditions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = AppStateContainer.of(context).theme;
-    TemperatureUnit unit = AppStateContainer.of(context).temperatureUnit;
+    //TemperatureUnit unit = AppStateContainer.of(context).temperatureUnit;
 
     int currentSoilMoisture = this.weather.soilMoisture!;
     //int currentTemp = this.weather.temperature!.as(unit).round();
