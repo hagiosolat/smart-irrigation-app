@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:irrigation1/main.dart';
 import 'package:irrigation1/src/model/weather.dart';
-import 'package:irrigation1/src/widgets/value_tile.dart';
 
 import '../utils/converters.dart';
 

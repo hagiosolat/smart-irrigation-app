@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:irrigation1/main.dart';
 import 'package:irrigation1/src/model/weather.dart';
 import 'package:irrigation1/src/widgets/value_tile.dart';
 import 'package:intl/intl.dart';
@@ -36,7 +35,7 @@ class ForecastHorizontal extends StatelessWidget {
                 child: ValueTile(
               DateFormat('E, ha').format(
                   DateTime.fromMillisecondsSinceEpoch(item.time! * 1000)),
-              '${(item.soilMoisture! * 100) / 4095}%',
+              '${(item.soilMoisture! * 100) ~/ 4095}%',
               // iconData: item.getIconData(),
             )),
           );

@@ -15,8 +15,7 @@ class WeatherWidget extends StatelessWidget {
   final List<WeatherMap>? weatherList;
   bool? buttonState;
 
-  WeatherWidget({required this.weather, this.weatherList, this.buttonState})
-      : assert(weather != null);
+  WeatherWidget({required this.weather, this.weatherList, this.buttonState});
 
   @override
   Widget build(BuildContext context) {

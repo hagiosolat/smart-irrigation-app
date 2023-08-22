@@ -16,7 +16,7 @@ class WeatherLoading extends WeatherState {}
 class WeatherLoaded extends WeatherState {
   final WeatherMap weather;
 
-  const WeatherLoaded({required this.weather}) : assert(weather != null);
+  const WeatherLoaded({required this.weather});
 
   @override
   List<Object> get props => [weather];
@@ -25,8 +25,7 @@ class WeatherLoaded extends WeatherState {
 class WeatherPopulated extends WeatherState {
   final List<WeatherMap> weatherList;
 
-  const WeatherPopulated({required this.weatherList})
-      : assert(weatherList != null);
+  const WeatherPopulated({required this.weatherList});
 
   @override
   List<Object> get props => [weatherList];
@@ -35,7 +34,7 @@ class WeatherPopulated extends WeatherState {
 class WeatherError extends WeatherState {
   final int errorCode;
 
-  const WeatherError({required this.errorCode}) : assert(errorCode != null);
+  const WeatherError({required this.errorCode});
 
   @override
   List<Object> get props => [errorCode];
@@ -48,4 +47,3 @@ class ButtonState extends WeatherState {
   @override
   List<Object> get props => [buttonstate];
 }
-

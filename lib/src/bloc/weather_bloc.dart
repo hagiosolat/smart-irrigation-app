@@ -6,8 +6,7 @@ import 'package:irrigation1/src/repository/weather_repository.dart';
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final WeatherRepository weatherRepository;
 
-  WeatherBloc({required this.weatherRepository})
-      : assert(weatherRepository != null),
+  WeatherBloc({required this.weatherRepository}):
         super(WeatherEmpty()) {
     on<FetchWeather>(_onFetchWeather);
     on<FetchListData>(_onFetchListData);

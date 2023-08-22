@@ -22,7 +22,7 @@ class _TemperatureLineChartState extends State<TemperatureLineChart> {
     print('The graph weatherList is ${widget.weathers.length}');
 
     return Padding(
-      padding: EdgeInsets.all(25.0),
+      padding: const EdgeInsets.all(25.0),
       child: SfCartesianChart(
           primaryXAxis: DateTimeAxis(),
           primaryYAxis: NumericAxis(
@@ -38,10 +38,9 @@ class _TemperatureLineChartState extends State<TemperatureLineChart> {
               xValueMapper: (WeatherMap weather, _) =>
                   DateTime.fromMillisecondsSinceEpoch(weather.time! * 1000),
               yValueMapper: (WeatherMap weather, _) => weather.soilMoisture,
-              color: Color.fromRGBO(242, 117, 7, 1),
+              color: const Color.fromRGBO(242, 117, 7, 1),
             )
-          ]
-          ),
+          ]),
     );
   }
 }
